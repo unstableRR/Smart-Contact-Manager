@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>this is About Page</title>
+</head>
+<body>
+<section>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+
+                        <form id="login-form" class="form" th:action="@{/dologin}" action="#" method="post">
+
+                            <h3 style="color:rgb(0, 150, 136) !important;" class="text-center text-info">Log!n</h3>
+
+                            <div th:if="${param.error}" class="alert alert-danger">
+                                Invalid username and password
+                            </div>
+
+                            <div th:if="${param.logout}" class="alert alert-success">
+                                You have been logged out
+                            </div>
+
+                            <div th:if="${param.change}" class="alert alert-success">
+                                <p th:text="${param.change}"></p>
+                            </div>
+
+                            <div class="form-group">
+                                <label style="color:rgb(0, 150, 136) !important;" for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label style="color:rgb(0, 150, 136) !important;" for="password" class="text-info">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+
+                            <!-- remember me
+                            <div class="form-group">
+                                <label style="color:rgb(0, 150, 136) !important;" for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <input style="background-color:rgb(0, 150, 136) !important;" type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                            </div>
+                            -->
+
+                            <div class="form-group">
+                                <a th:href="@{/forgot}" style="color:rgb(0, 150, 136) !important;" for="forgot-password" class="text-info"><i>Forgot Password ?</i></a><br>
+                                <input style="background-color:rgb(0, 150, 136) !important;" type="submit" name="submit" class="btn btn-info btn-md mt-2" value="submit">
+                            </div>
+
+                            <div id="register-link" class="text-right">
+                                <a style="color:rgb(0, 150, 136) !important;" href="/signup/" class="text-info"><i>Register-Here</i></a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
